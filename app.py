@@ -60,6 +60,9 @@ def signin():
             login = '成功登入系統'
             return redirect('/member/')
             # return render_template('member.html', login=login, username=username)
+        elif ((username) not in result):
+            error4 = '查無此帳號'
+            return render_template('error.html', error4=error4)
         else:
             error3 = '帳號密碼輸入錯誤'
             return render_template('error.html', error3=error3)
@@ -99,8 +102,8 @@ def signup():
 
 @app.route('/member/')
 def member():
-    logout = '已登出'
-    return render_template('member.html', logout=logout)
+    # logout = '已登出'
+    return render_template('member.html', web_info=web_info)
 
 
 @ app.route('/signout')
