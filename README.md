@@ -197,7 +197,7 @@ DELETE from user;
 
 # 4. 結合資料表 SQL JOIN 的操作
 
-# 1. 在資料庫中，建立新資料表，取名字為 message。資料表中必須包含以下欄位設定:
+## 1. 在資料庫中，建立新資料表，取名字為 message。資料表中必須包含以下欄位設定:
 
 ```bash
 mysql> CREATE TABLE message(
@@ -210,13 +210,13 @@ mysql> CREATE TABLE message(
     -> );
 ```
 
-# ● 使用 SELECT 搭配 JOIN 的語法，取得所有留言，資料中須包含留言會員的姓名。
+## ● 使用 SELECT 搭配 JOIN 的語法，取得所有留言，資料中須包含留言會員的姓名。
 
 ```bash
 SELECT name, content FROM user JOIN message ON user.id = message.user_id;
 ```
 
-# ● 使用 SELECT 搭配 JOIN 的語法，取得 user 資料表中欄位 username 是 ply 的所有留言，資料中須包含留言會員的姓名。
+## ● 使用 SELECT 搭配 JOIN 的語法，取得 user 資料表中欄位 username 是 ply 的所有留言，資料中須包含留言會員的姓名。
 
 ```bash
 SELECT name, content FROM user JOIN message ON user.id = message.user_id WHERE username = 'ply';

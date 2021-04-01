@@ -2,15 +2,6 @@ from flask import Flask, render_template, request, redirect, session, g
 from datetime import timedelta
 import mysql.connector
 
-# from flask_mysqldb import MySQL
-# import yaml
-# db = yaml.load(open('dbyaml'))
-# app.config['MYSQL_HOST'] = db['mysql_host']
-# app.config['MYSQL_USER'] = db['mysql_user']
-# app.config['MYSQL_PASSWORD'] = db['mysql_password']
-# app.config['MYSQL_DB'] = db['mysql_db']
-# mysql = MySQL(app)
-
 mydb = mysql.connector.connect(host='localhost',
                                user='k',
                                password='kpython',
@@ -20,23 +11,27 @@ app = Flask(__name__)
 app.secret_key = 'secretkey'
 app.permanent_session_lifetime = timedelta(minutes=10080)
 mycursor = mydb.cursor()
-#mycursor = mysql.connection.cursor()
+
 web_info = {
     'signin_t': '歡迎光臨，請輸入帳號密碼',
     'member_t': '歡迎光臨，這是會員頁面',
     'signup_t': '歡迎光臨，註冊成功',
     'error_t': '失敗頁面',
     'signout_t': '已登出',
-    'success': '成功註冊系統'
+    'success': '成功註冊系統',
+    'error': 'hohoho'
 }
 
 
 @app.before_request
 def before_request():
     g.username = '您'
+    g.name = ''
     if 'username' in session:
         username = session['username']
+        name = session['name']
         g.username = username
+        g.name = name
 
 
 @app.route('/')
@@ -50,16 +45,21 @@ def signin():
     username = request.form.get('username')
     password = request.form.get('password')
 
-    # session.pop('user_username', None)
     if request.method == 'POST':
         mycursor.execute("SELECT username, password FROM user")
         result = mycursor.fetchall()
+        # print(name, username, password)
         if ((username, password) in result):
-            print((username, password))
+            #print((username, password))
             session['username'] = username
-            # login = '成功登入系統'
+            print(username, password)
+            # mycursor.execute(
+            #     "SELECT name FROM user where ")
+            # result = mycursor.fetchall()
+            # session['name'] = name
+            # print(session['name'])
             return redirect('/member/')
-            # return render_template('member.html', login=login, username=username)
+            # return render_template('member.html', web_info=web_info, name=name)
         elif ((username) not in result):
             error4 = '查無此帳號'
             return render_template('error.html', error4=error4)
@@ -74,8 +74,7 @@ def signup():
     # success = None
 
     if request.method == 'POST':
-        # session.permanent = True
-        uname = request.form.get('uname')
+        name = request.form.get('name')
         username = request.form.get('username')
         password = request.form.get('password')
         password2 = request.form.get('password2')
@@ -92,17 +91,14 @@ def signup():
             return render_template('error.html', error2=error2)
         else:
             query = "INSERT into user(name, username, password) VALUES (%s,%s,%s)"
-            mycursor.execute(query, (uname, username, password))
+            mycursor.execute(query, (name, username, password))
             mydb.commit()
-            # mysql.connection.commit()
-            # mycursor.close()
             success = '成功註冊系統'
             return redirect('/')
 
 
 @app.route('/member/')
 def member():
-    # logout = '已登出'
     return render_template('member.html', web_info=web_info)
 
 
@@ -116,8 +112,14 @@ def signout():
 
 @ app.route('/error/')
 def error():
+    msg = request.args.get('message', '有error')
+    message = 'errorrrrrrr'
+    if msg == '1':
+        msg = '帳號或密碼輸入錯誤'
+
     return render_template('error.html',
-                           web_info=web_info
+                           web_info=web_info,
+                           msg=msg
                            )
 
 
