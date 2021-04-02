@@ -24,11 +24,12 @@ web_info = {
 @app.before_request
 def before_request():
     g.username = '您'
-    g.name = ''
+    g.name = '您'
     if 'username' in session:
         username = session['username']
-        name = session['name']
         g.username = username
+    if 'name' in session:
+        name = session['name']
         g.name = name
 
 
@@ -46,17 +47,28 @@ def signin():
 
     if request.method == 'POST':
         mycursor.execute("SELECT username, password FROM user")
-        result = mycursor.fetchall()
+        result1 = mycursor.fetchall()
         # for n in range(len(result)):
         #     name = result[n][0]
         #     # print(name)
         #     print(result[n][1])
         #     print(result[n][2])
         # print(result[0][0])
-        print(result)
-        if ((username, password) in result):
+        # print(result1)
+        if ((username, password) in result1):
             session['username'] = username
-            print(username, password)
+            username = session['username']
+
+            mycursor.execute(
+                "SELECT name, username FROM user where username = username")
+            result2 = mycursor.fetchall()
+            session['name'] = name
+            # name = session['name']
+            print(session['name'])
+            print(result2)
+            if result1[1] == result2[1]:
+                print(result2[0])
+
             return redirect('/member/')
         elif ((username) not in result):
             error4 = '查無此帳號'
