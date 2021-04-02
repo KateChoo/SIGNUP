@@ -24,10 +24,6 @@ web_info = {
 @app.before_request
 def before_request():
     g.username = '您'
-    if 'username' in session:
-        username = session['username']
-        g.username = username
-        print(f'g.username{g.username}')
     if 'name' in session:
         name = session['name']
         g.name = name
