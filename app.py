@@ -23,7 +23,7 @@ web_info = {
 
 @app.before_request
 def before_request():
-    g.name = '您'
+    g. name = '您'
     if 'name' in session:
         name = session['name']
         g.name = name
@@ -49,9 +49,9 @@ def signin():
         print(f'signin{result}')
         if result:
             name = result[0][1]
+            session.permanent = True
             session['name'] = name
             print(f'result: {name}')
-            session['username'] = username
             return redirect('/member/')
         else:
             error3 = '帳號密碼輸入錯誤'

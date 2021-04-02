@@ -1,3 +1,13 @@
+# 如何使用 google 登入
+
+1. Credentials page :
+   https://console.cloud.google.com/apis/credentials?pli=1&project=arboreal-vision-295607&folder=&organizationId=
+2. 點選 Create credentials > OAuth client ID.
+3. 您必須先在同意畫面中設定產品名稱，才能建立 OAuth 用戶端 ID
+4. User Type > 外部
+5. Select the Web application application type.
+   Name your OAuth 2.0 client and click Create
+
 # 其他
 
 ## 登入 mysql
