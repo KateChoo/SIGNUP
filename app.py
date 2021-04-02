@@ -23,7 +23,7 @@ web_info = {
 
 @app.before_request
 def before_request():
-    g.username = '您'
+    g.name = '您'
     if 'name' in session:
         name = session['name']
         g.name = name
@@ -90,7 +90,7 @@ def member():
 
 @ app.route('/signout')
 def signout():
-    session.pop('username', '您')
+    session.pop('name', '您')
     return render_template('home.html',
                            web_info=web_info
                            )
