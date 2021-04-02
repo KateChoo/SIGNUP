@@ -18,8 +18,6 @@ web_info = {
     'signup_t': '歡迎光臨，註冊成功',
     'error_t': '失敗頁面',
     'signout_t': '已登出',
-    'success': '成功註冊系統',
-    'error': 'hohoho'
 }
 
 
@@ -42,24 +40,24 @@ def home():
 
 @app.route('/signin', methods=['POST', 'GET'])
 def signin():
+    name = ''
     username = request.form.get('username')
     password = request.form.get('password')
 
     if request.method == 'POST':
         mycursor.execute("SELECT username, password FROM user")
         result = mycursor.fetchall()
-        # print(name, username, password)
+        # for n in range(len(result)):
+        #     name = result[n][0]
+        #     # print(name)
+        #     print(result[n][1])
+        #     print(result[n][2])
+        # print(result[0][0])
+        print(result)
         if ((username, password) in result):
-            #print((username, password))
             session['username'] = username
             print(username, password)
-            # mycursor.execute(
-            #     "SELECT name FROM user where ")
-            # result = mycursor.fetchall()
-            # session['name'] = name
-            # print(session['name'])
             return redirect('/member/')
-            # return render_template('member.html', web_info=web_info, name=name)
         elif ((username) not in result):
             error4 = '查無此帳號'
             return render_template('error.html', error4=error4)
@@ -68,10 +66,8 @@ def signin():
             return render_template('error.html', error3=error3)
 
 
-@app.route('/signup', methods=['POST', 'GET'])
+@ app.route('/signup', methods=['POST', 'GET'])
 def signup():
-    # error = None
-    # success = None
 
     if request.method == 'POST':
         name = request.form.get('name')
@@ -97,7 +93,7 @@ def signup():
             return redirect('/')
 
 
-@app.route('/member/')
+@ app.route('/member/')
 def member():
     return render_template('member.html', web_info=web_info)
 
