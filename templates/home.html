@@ -10,6 +10,13 @@
 </head>
 <body>
     <h1>{{web_info.signin_t}}</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+             <h3 style="color:rgb(218, 88, 13);">{{msg}}</h3>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     {% block signup %}
         <form action="signup" method="post">
             <h3>註冊帳號</h3>

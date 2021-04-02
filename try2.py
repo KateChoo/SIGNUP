@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, session, g, flash
+from flask import Flask, render_template, request, redirect, session, g
+from authlib.integrations.flask_client import OAuth
 from datetime import timedelta
 import mysql.connector
 
@@ -51,9 +52,8 @@ def signin():
             name = result[0][1]
             session.permanent = True
             session['name'] = name
-            flash(f'Hi~ {name} 登入中～')
             print(f'result: {name}')
-            return redirect('/member/')
+            session['username'] = username
         else:
             error3 = '帳號密碼輸入錯誤'
             return render_template('error.html', error3=error3)
@@ -80,7 +80,6 @@ def signup():
             query = "INSERT into user(name, username, password) VALUES (%s,%s,%s)"
             cursor.execute(query, (name, username, password))
             mydb.commit()
-            flash(f'{name} 成功註冊系統～')
             #success = '成功註冊系統'
             return redirect('/')
 
@@ -92,11 +91,7 @@ def member():
 
 @ app.route('/signout')
 def signout():
-    if 'name' in session:
-        name = session['name']
-        flash(f'{name} bye bye 您登出啦～')
     session.pop('name', '您')
-
     return render_template('home.html',
                            web_info=web_info
                            )
