@@ -24,13 +24,14 @@ web_info = {
 @app.before_request
 def before_request():
     g.username = '您'
-    g.name = '您'
     if 'username' in session:
         username = session['username']
         g.username = username
+        print(f'g.username{g.username}')
     if 'name' in session:
         name = session['name']
         g.name = name
+        print(f'g.name{g.name}')
 
 
 @app.route('/')
@@ -41,6 +42,7 @@ def home():
 
 @app.route('/signin', methods=['POST', 'GET'])
 def signin():
+    print(request.form)
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form.get('username')
         password = request.form.get('password')
@@ -48,9 +50,11 @@ def signin():
         cursor.execute(
             'SELECT * FROM user WHERE username = %s AND password = %s', (username, password))
         result = cursor.fetchall()
-        print(f'帳號密碼輸入錯誤{result}')
+        print(f'signin{result}')
         if result:
-            # session['name'] = name  #name 'name' is not defined
+            name = result[0][1]
+            session['name'] = name
+            print(f'result: {name}')
             session['username'] = username
             return redirect('/member/')
         else:
@@ -68,7 +72,7 @@ def signup():
 
         cursor.execute('SELECT * FROM user WHERE username = %s', (username,))
         result = cursor.fetchone()
-        print(f'帳號已經被註冊or密碼輸入不同{result}')
+        print(f'signup{result}')
         if result:
             error1 = '帳號已經被註冊.'
             return render_template('error.html', error1=error1)
@@ -77,7 +81,7 @@ def signup():
             return render_template('error.html', error2=error2)
         else:
             query = "INSERT into user(name, username, password) VALUES (%s,%s,%s)"
-            mycursor.execute(query, (name, username, password))
+            cursor.execute(query, (name, username, password))
             mydb.commit()
             #success = '成功註冊系統'
             return redirect('/')
