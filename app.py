@@ -14,7 +14,7 @@ cursor = mydb.cursor()
 
 web_info = {
     'home_t': 'K留言板',
-    'signin_t': 'K說歡迎光臨',
+    'signin_t': '歡迎光臨，登入才有內容啊',
     'member_t': '歡迎光臨，這是會員頁面',
     'k_t': 'K作品連結',
     'taipei_t': '歡迎光臨，台北'
