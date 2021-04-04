@@ -1,0 +1,20 @@
+/* @import url("../reset.css"); */
+@import url("../common.css");
+
+header,
+main{
+    text-align: center;
+    margin: .5rem auto;
+}
+
+label,
+input,
+button,
+h3 a{
+    padding: .3rem;
+    margin: .3rem;
+}
+a{
+    padding: 1rem;
+    margin: 1rem;
+}

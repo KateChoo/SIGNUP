@@ -1,0 +1,190 @@
+@import url("../reset.css");
+@import url("../common.css");
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/*===*===*===*===*===*===*===*===*===
+              all
+===*===*===*===*===*===*===*===*===*/
+body {
+  font-size: 20px;
+}
+
+header {
+  max-width: 100%;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+header nav a {
+  margin-right: auto;
+  padding: 0.5rem 0;
+}
+
+header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5rem 0;
+}
+
+header nav ul li {
+  padding-left: 0.5rem;
+}
+
+header div {
+  height: 300px;
+  background: #d8d8eb;
+  display: -ms-grid;
+  display: grid;
+}
+
+header div h1 {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 40px;
+}
+
+main ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main li {
+  background: #d8d8eb;
+  margin-top: 1.5rem;
+  margin: 5px;
+}
+
+main li p {
+  text-align: center;
+  padding: 0.5rem;
+}
+footer{
+  color: #000;
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%);
+}
+footer a{
+  color: #000;
+}
+/*===*===*===*===*===*===*===*===*===
+            1200 
+===*===*===*===*===*===*===*===*===*/
+@media only screen and (min-width: 1200px) {
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  main ul {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+  main img{
+    height: 217px;
+  }
+}
+
+/*===*===*===*===*===*===*===*===*===
+            600~1200 
+===*===*===*===*===*===*===*===*===*/
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  main ul {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  main ul li {
+    max-width: 90%;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  main ul img {
+    max-width: 100%;
+    width: 500px;
+  }
+}
+
+/*===*===*===*===*===*===*===*===*===
+                  600 
+===*===*===*===*===*===*===*===*===*/
+@media only screen and (max-width: 600px) {
+  header div {
+    max-width: 100%;
+  }
+  header nav ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  header nav ul span {
+    display: block;
+    width: 2rem;
+    height: 3px;
+    margin: 5px;
+    background: #5a5a5a;
+  }
+  header nav li {
+    display: none;
+  }
+  main {
+    max-width: 600px;
+  }
+  main ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main ul img {
+    max-width: 100%;
+    width: 480px;
+  }
+}
+/*# sourceMappingURL=pada_0.css.map */

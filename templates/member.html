@@ -1,7 +1,11 @@
-<h1>{{web_info.member_t}}</h1>
-{% if g.name == '您' %}
-    <h3> <a href = "/"> 登入系統/首頁 </a></h3>
-{% else %}
-    <h3> 恭喜{{g.name}}！成功登入 </h3>
-    <h3> <a href = "/signout"> 登出系統 </a></h3>
-{% endif %}
+{% extends 'layout.html' %}
+{% block member %}
+    {% block title %}
+        <h1>{{web_info.member_t}}</h1>
+    {% endblock %}
+    {% if g.name == '您' %}
+        <h3> <a href = "/"> 登入系統/首頁 </a></h3>
+    {% else %}
+        <h3> 恭喜{{g.name}}！成功登入 </h3>
+    {% endif %}
+{% endblock %}

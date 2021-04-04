@@ -1,0 +1,9 @@
+
+flask
+datetime
+mysql.connector
+
+
+
+#如何知道哪些要寫在這
+

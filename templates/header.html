@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+    {% block header %}
+            <nav>
+                <a href="/dir">Directory</a>
+
+                <ul id='nav'>
+                    <span class="s1"></span>
+                    <span class="s2"></span>
+                    <span class="s3"></span>
+                    {#}
+                    {% for item in navigation %}
+                    <!-- <li><a href="{{ item.href }}">{{ item.caption }}</a></li> -->
+                        <li><a>{{item}}</a></li>
+                    {% endfor %}
+                    #}
+                    <li class='show'><a>item1</a></li>
+                    <li class='show'><a>item2</a></li>
+                    <li class='show'><a>item3</a></li>
+                    <li class='show'><a>item4</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h1>Welcome to K</h1>
+            </div>
+{% endblock %}

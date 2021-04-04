@@ -28,12 +28,14 @@ def before_request():
         name = session['name']
         g.name = name
         print(f'g.name{g.name}')
+    # if 'username' in session:
+    #     username = session['username']
+    #     g.username = username
 
 
 @app.route('/')
 def home():
-    return render_template('home.html',
-                           web_info=web_info)
+    return render_template('home.html', web_info=web_info)
 
 
 @app.route('/signin', methods=['POST', 'GET'])
@@ -51,6 +53,7 @@ def signin():
             name = result[0][1]
             session.permanent = True
             session['name'] = name
+            session['username'] = username
             flash(f'Hi~ {name} 登入中～')
             print(f'result: {name}')
             return redirect('/member/')
@@ -92,6 +95,7 @@ def member():
 
 @ app.route('/signout')
 def signout():
+    # session.pop('username', None)
     if 'name' in session:
         name = session['name']
         flash(f'{name} bye bye 您登出啦～')

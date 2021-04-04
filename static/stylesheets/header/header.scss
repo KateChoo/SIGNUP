@@ -1,0 +1,157 @@
+@import url("../reset.css");
+@import url("../common.css");
+@import "_variable";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+img {
+  display: block;
+  width: 100%;
+}
+
+/*===*===*===*===*===*===*===*===*===
+              all
+===*===*===*===*===*===*===*===*===*/
+body {
+  font-size: $base_fz;
+}
+header {
+  max-width: 100%;
+  nav {
+    display: flex;
+    justify-content: space-around;
+    a {
+      margin-right: auto;
+      padding: 0.5rem 0;
+    }
+    ul {
+      display: flex;
+      padding: 0.5rem 0;
+      li {
+        padding-left: 0.5rem;
+      }
+    }
+  }
+  div {
+    height: $header_max-height;
+    background: rgb(216, 216, 235);
+    display: grid;
+    h1 {
+      justify-self: center;
+      align-self: center;
+      font-size: $header_fz;
+    }
+  }
+}
+main {
+  ul {
+    @include flexCenter;
+  }
+  li {
+    background: rgb(216, 216, 235);
+    margin-top: 1.5rem;
+    margin: 5px;
+    p {
+      text-align: center;
+      padding: 0.5rem;
+    }
+  }
+}
+footer{
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%);
+  a {
+    color: #000;
+  }
+}
+/*===*===*===*===*===*===*===*===*===
+            1200 
+===*===*===*===*===*===*===*===*===*/
+@media only screen and (min-width: 1200px) {
+  main {
+    max-width: $main_max-width;
+    margin: 0 auto;
+    ul {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    img{
+      height: 217px;
+    }
+  }
+}
+/*===*===*===*===*===*===*===*===*===
+            600~1200 
+===*===*===*===*===*===*===*===*===*/
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+  main {
+    max-width: $main_max-width;
+    margin: 0 auto;
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      li{
+        max-width: 90%;
+        justify-self: center;
+        align-self: center;
+      }
+      img {
+        max-width: 100%;
+        width: 500px;
+      }
+    }
+  }
+}
+/*===*===*===*===*===*===*===*===*===
+                  600 
+===*===*===*===*===*===*===*===*===*/
+
+@media only screen and (max-width: 600px) {
+  header div{
+    max-width: 100%;
+  }
+  header nav {
+    ul {
+      flex-direction: column;
+      span {
+        @include hamberger;
+      }
+    }
+    li {
+      display: none;
+    }
+  }
+  main {
+    max-width: $main_max-width/2;
+    ul {
+      flex-direction: column;
+      img {
+        max-width: 100%;
+        width: 480px;
+      }
+    }
+  }
+  // header nav ul span::after{
+  //   @include hamberger;
+  //   transform: translateY(-15px);
+  // }
+  // header nav ul span::before{
+  //   @include hamberger;
+  //   // transform: translateY(-5px);
+  // }
+}
+
+// span1-{
+//   transform: rotate('45deg')
+// }

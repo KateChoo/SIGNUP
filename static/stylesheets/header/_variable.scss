@@ -1,0 +1,19 @@
+
+$header_max-height: 300px;
+$main_max-width: 1200px;
+
+$base_fz: 20px;
+$header_fz: ($base_fz)*2;
+
+@mixin flexCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin hamberger {
+  display: block;
+  width: 2rem;
+  height: 3px;
+  margin: 5px;
+  background: rgb(90, 90, 90);
+}
