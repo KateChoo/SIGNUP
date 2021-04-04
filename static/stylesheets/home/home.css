@@ -25,7 +25,7 @@ a:hover {
 form{
     margin: 0 auto;
 }
-.profolio {
+.porfolio {
   margin-top: .5rem;
 }
 .mylinks p{
@@ -35,7 +35,7 @@ form{
     .form{
         display: flex;
     }
-    .profolio{   /*flexcenter*/
+    .porfolio{   /*flexcenter*/
       display: flex;
       /* flex-direction: column; */
       justify-content: space-around;
