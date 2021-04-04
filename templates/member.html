@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block member %}
-    {% if g.name == '您' %}
+    {% if g.name == ' ' %}
         {% block title %}
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -18,7 +18,7 @@
                     justify-self: center;
                     align-self: center;">{{msg}}</h3>
                     {% endfor %}
-                {% elif g.name == '您' %}
+                {% elif g.name == ' ' %}
                     <h1>{{web_info.member_t}}</h1>
                 {% else %}
                     <h1>{{g.name}}的...</h1>

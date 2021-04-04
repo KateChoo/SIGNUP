@@ -4,12 +4,12 @@
 {% endblock %}
 
 {% block k_links %}
-    {% if g.name == '您' %}
+    {% if g.name == ' ' %}
         {% block title_k %}
         <h1>{{web_info.k_t}}</h1>
         {% endblock %}
     {% else %}
-        <section class="port">
+        <section class="port" style="align-items: flex-start;">
             <div class="mylinks">
                 <p><a href="https://shibahi.netlify.app/" target="_blank">shiba собака ワンワン</a></p>
                 <p><a href="https://mario1985.netlify.app" target="_blank">Mario 1985</a></p>
@@ -19,8 +19,16 @@
                     <i id="github" class="fab fa-github fa-2x"></i>
                 </a>
             </div>
-            <div class="youtube">
-                <iframe width="560" height="315" src="http://www.youtube.com/embed/T1MeDLqu7Bc" frameborder="0" allowfullscreen></iframe>
+            <div>
+                <div class="youtube">
+                    <iframe width="560" height="315" src="http://www.youtube.com/embed/T1MeDLqu7Bc" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="youtube">
+                    <iframe width="560" height="315" src="http://www.youtube.com/embed/ovkR5SPr_t4" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="youtube">
+                    <iframe width="560" height="315" src="http://www.youtube.com/embed/3TqOgisKSNg" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
         </section>
     {% endif %}

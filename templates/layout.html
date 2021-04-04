@@ -33,7 +33,7 @@
                 <li class='show'><a href = "/member">{{g.name}}</a></li>
                 <li class='show'><a href = "/k_links">作品連結</a></li>
                 <li class='show'><a href = "/tpe">樂台北</a></li>
-                {% if g.name == '您' %}
+                {% if g.name == ' ' %}
                     <li class='show'><a href = "/">登入系統</a></li>
                 {% else %}
                     <li class='show'><a href = "/signout">登出系統</a></li>
@@ -51,7 +51,7 @@
                     justify-self: center;
                     align-self: center;">{{msg}}</h3>
                     {% endfor %}
-                {% elif g.name == '您' %}
+                {% elif g.name == ' ' %}
                     <h1>{{web_info.signin_t}}</h1>
                 {% else %}
                     {% block title_home %}

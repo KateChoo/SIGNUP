@@ -7,6 +7,9 @@ form{
 .port {
 margin-top: .5rem;
 }
+.mylinks{
+    padding-top: -10rem;;
+}
 .mylinks p{
 padding: .5rem 0;
 }
@@ -14,7 +17,7 @@ padding: .5rem 0;
     .port {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     }
 }
 
