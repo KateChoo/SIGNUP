@@ -13,7 +13,7 @@ app.permanent_session_lifetime = timedelta(minutes=10080)
 cursor = mydb.cursor()
 
 web_info = {
-    'signin_t': '歡迎光臨，會員才看得到作品',
+    'signin_t': '歡迎光臨',
     'member_t': '歡迎光臨，這是會員頁面',
     'signup_t': '歡迎光臨，註冊成功',
     'error_t': '失敗頁面',
@@ -28,19 +28,11 @@ def before_request():
         name = session['name']
         g.name = name
         print(f'g.name{g.name}')
-    # if 'username' in session:
-    #     username = session['username']
-    #     g.username = username
 
 
 @app.route('/')
 def home():
     return render_template('home.html', web_info=web_info)
-
-
-@app.route('/piano')
-def piano():
-    return render_template('piano.html', web_info=web_info)
 
 
 @app.route('/signin', methods=['POST', 'GET'])
@@ -127,6 +119,15 @@ def error():
 @app.route('/line')
 def line():
     return render_template('line.html', web_info=web_info)
+
+
+@app.route('/k_links')
+def msg():
+    return render_template('k_links.html', web_info=web_info)
+
+# @app.route('/k')
+# def msg():
+#     return render_template('msg.html', web_info=web_info)
 
 
 if __name__ == '__main__':

@@ -1,4 +1,7 @@
 {% extends 'layout.html' %}
+{% block msg_css_link%}
+<link rel="stylesheet" href="static/stylesheets/home/msg.css">
+{% endblock %}
 {% block member %}
         {% block title %}
             {% with messages = get_flashed_messages() %}
@@ -18,3 +21,4 @@
             {% endwith %}
         {% endblock %}
 {% endblock %}
+

@@ -3,9 +3,15 @@
 {% block home_css_link%}
     <link rel="stylesheet" href="static/stylesheets/home/home.css">
 {% endblock %}
+{% block msg_css_link%}
+<link rel="stylesheet" href="static/stylesheets/home/msg.css">
+{% endblock %}
 
 {% block home %} 
     {% if g.name == '您' %}
+        {% block title_home %}
+        <h1>留言板</h1>
+        {% endblock %}
 
         <div class="form">
         {% block signup %}
@@ -46,32 +52,29 @@
                 <label for="password">密碼</label>
                 <input name="password" type="password" placeholder="password" />  
             </div>
-            <button>登入</button>
+            <div>
+                <input type="submit" name="submit" value="登入">
+            </div>
         </form>
         {% endblock %}
         </div>
     {% else %}
-        <div class="porfolio">
-            <div class="mylinks">
-                <p><a href="https://shibahi.netlify.app/" target="_blank">shiba собака ワンワン</a></p>
-                <p><a href="https://mario1985.netlify.app" target="_blank">Mario 1985</a></p>
-                <p><a href="https://abaca.netlify.app" target="_blank">My Piano</a></p>
-                <p><a href="https://dearhr.netlify.app" target="_blank">Dear HR</a></p>
-                <a href="https://github.com/KateChoo" target="_blank" title="GitHub">
-                    <i id="github" class="fab fa-github fa-2x"></i>
-                </a>
+        <section class="mboard">
+            <div class="container">
+                <label for="">話說:</label>
+                <button class="add_msg">新增留言</button>
             </div>
-            <div class="youtube">
-                <iframe width="560" height="315" src="http://www.youtube.com/embed/T1MeDLqu7Bc" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="mboard">
-
-        </div>
-        {% block home_js %}
-            <script src="../static/js/home.js"> </script>
-        {% endblock %}
+        
+            <div class="message">
+            </div> 
+        </section>
     {% endif %}
+    {% block home_js %}
+        <script src="../static/js/home.js"> </script>
+    {% endblock %}
+    {% block msg_js %}
+    <script src="../static/js/msg.js"> </script>
+    {% endblock %}
 {% endblock %}
     
 

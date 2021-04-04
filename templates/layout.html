@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="/static/stylesheets/header/header.css">
     {% block home_css_link%}
     {% endblock %}
+    {% block msg_css_link%}
+    {% endblock %}
+    {% block k_links_css_link%}
+    {% endblock %}
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <title>K Choo | Protfolio</title>
+    <title>K Choo | Portfolio</title>
 </head>
 <body>
     <header>
@@ -34,7 +38,7 @@
                     <li class='show'><a href = "/signout">登出系統</a></li>
                 {% endif %}
                 <li class='show'><a href = "/line">LINE</a></li>
-                <li class='show'><a href = "https://zandb.link/">K</a></li>
+                <li class='show'><a href = "/k_links">K</a></li>
             </ul>
         </nav>
         <div>
@@ -51,7 +55,10 @@
                 {% elif g.name == '您' %}
                     <h1>{{web_info.signin_t}}</h1>
                 {% else %}
-                    <h1>作品集</h1>
+                    {% block title_home %}
+                    {% endblock %}
+                    {% block title_k %}
+                    {% endblock %}
                 {% endif %}
             {% endwith %}
         {% endblock %}
@@ -62,9 +69,13 @@
     <main>
         {% block home %}
         {% endblock %}
+        {% block k_links %}
+        {% endblock %}
     </main>
 <script src="static/js/header.js"> </script>  
 {% block home_js %}
+{% endblock %}
+{% block msg_js %}
 {% endblock %}
 </body>
 </html>

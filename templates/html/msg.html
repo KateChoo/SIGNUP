@@ -1,0 +1,20 @@
+{#}
+{% block msg_css_link%}
+<link rel="stylesheet" href="static/stylesheets/home/msg.css">
+{% endblock %}
+{% block msg %}
+    <div class="container">
+        <label for="">話說:</label>
+        <button>新增留言</button>
+    </div>
+
+    <div class="message">
+    </div> 
+    {% block msg_js %}
+    <script src="../static/js/msg.js"> </script>
+    {% endblock %}
+{% endblock %}
+{% block msg_js %}
+<script src="../static/js/msg.js"> </script>
+{% endblock %}
+{#}

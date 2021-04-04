@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block k_links_css_link%}
+<link rel="stylesheet" href="static/stylesheets/k_links/k_links.css">
+{% endblock %}
+
+{% block k_links %}
+    {% if g.name == '您' %}
+        {% block title_k %}
+        <h1>作品連結</h1>
+        {% endblock %}
+    {% else %}
+        <section class="port">
+            <div class="mylinks">
+                <p><a href="https://shibahi.netlify.app/" target="_blank">shiba собака ワンワン</a></p>
+                <p><a href="https://mario1985.netlify.app" target="_blank">Mario 1985</a></p>
+                <p><a href="https://abaca.netlify.app" target="_blank">My Piano</a></p>
+                <p><a href="https://dearhr.netlify.app" target="_blank">Dear HR</a></p>
+                <a href="https://github.com/KateChoo" target="_blank" title="GitHub">
+                    <i id="github" class="fab fa-github fa-2x"></i>
+                </a>
+            </div>
+            <div class="youtube">
+                <iframe width="560" height="315" src="http://www.youtube.com/embed/T1MeDLqu7Bc" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

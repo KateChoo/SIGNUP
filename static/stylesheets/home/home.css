@@ -19,26 +19,3 @@ img {
   display: block;
   width: 100%;
 }
-a:hover {
-  text-decoration: underline;
-}
-form{
-    margin: 0 auto;
-}
-.porfolio {
-  margin-top: .5rem;
-}
-.mylinks p{
-  padding: .5rem 0;
-}
-@media only screen and (min-width: 1200px) {
-    .form{
-        display: flex;
-    }
-    .porfolio{   /*flexcenter*/
-      display: flex;
-      /* flex-direction: column; */
-      justify-content: space-around;
-      align-items: center;
-    }
-}
