@@ -1,11 +1,20 @@
 {% extends 'layout.html' %}
 {% block member %}
-    {% block title %}
-        <h1>{{web_info.member_t}}</h1>
-    {% endblock %}
-    {% if g.name == '您' %}
-        <h3> <a href = "/"> 登入系統/首頁 </a></h3>
-    {% else %}
-        <h3> 恭喜{{g.name}}！成功登入 </h3>
-    {% endif %}
+        {% block title %}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages %}
+                    <h3 style="color:rgb(218, 88, 13); 
+                    margin: 0 auto; 
+                    display:grid;
+                    justify-self: center;
+                    align-self: center;">{{msg}}</h3>
+                    {% endfor %}
+                {% elif g.name == '您' %}
+                    <h1>{{web_info.member_t}}</h1>
+                {% else %}
+                    <h1>{{g.name}}頁面</h1>
+                {% endif %}
+            {% endwith %}
+        {% endblock %}
 {% endblock %}

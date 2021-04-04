@@ -1,26 +1,12 @@
 {% extends 'layout.html' %}
 
-{% block signup_css_link%}
-    <link rel="stylesheet" href="static/stylesheets/signup/signup.css">
+{% block home_css_link%}
+    <link rel="stylesheet" href="static/stylesheets/home/home.css">
 {% endblock %}
 
-{% block title %}
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for msg in messages %}
-            <h3 style="color:rgb(218, 88, 13); 
-            margin: 0 auto; 
-            display:grid;
-            justify-self: center;
-            align-self: center;">{{msg}}</h3>
-            {% endfor %}
-        {% else %}
-            <h1>{{web_info.signin_t}}</h1>
-        {% endif %}
-    {% endwith %}
-{% endblock %}
+{% block home %} 
+    {% if g.name == '您' %}
 
-{% block home %}    
         <div class="form">
         {% block signup %}
             <form action="signup" method="post">
@@ -61,11 +47,31 @@
                 <input name="password" type="password" placeholder="password" />  
             </div>
             <button>登入</button>
-            <h3> <a href = "/signout"> 登出系統 </a></h3>
         </form>
         {% endblock %}
         </div>
-
+    {% else %}
+        <div class="profolio">
+            <div class="mylinks">
+                <p><a href="https://shibahi.netlify.app/" target="_blank">shiba собака ワンワン</a></p>
+                <p><a href="https://mario1985.netlify.app" target="_blank">Mario 1985</a></p>
+                <p><a href="https://abaca.netlify.app" target="_blank">My Piano</a></p>
+                <p><a href="https://dearhr.netlify.app" target="_blank">Dear HR</a></p>
+                <a href="https://github.com/KateChoo" target="_blank" title="GitHub">
+                    <i id="github" class="fab fa-github fa-2x"></i>
+                </a>
+            </div>
+            <div class="youtube">
+                <iframe width="560" height="315" src="http://www.youtube.com/embed/T1MeDLqu7Bc" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="mboard">
+            
+        </div>
+        {% block home_js %}
+            <script src="../static/js/home.js"> </script>
+        {% endblock %}
+    {% endif %}
 {% endblock %}
     
 

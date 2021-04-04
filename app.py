@@ -13,7 +13,7 @@ app.permanent_session_lifetime = timedelta(minutes=10080)
 cursor = mydb.cursor()
 
 web_info = {
-    'signin_t': '歡迎光臨，請輸入帳號密碼',
+    'signin_t': '歡迎光臨，會員才看得到作品',
     'member_t': '歡迎光臨，這是會員頁面',
     'signup_t': '歡迎光臨，註冊成功',
     'error_t': '失敗頁面',
@@ -36,6 +36,11 @@ def before_request():
 @app.route('/')
 def home():
     return render_template('home.html', web_info=web_info)
+
+
+@app.route('/piano')
+def piano():
+    return render_template('piano.html', web_info=web_info)
 
 
 @app.route('/signin', methods=['POST', 'GET'])
@@ -74,7 +79,7 @@ def signup():
         result = cursor.fetchone()
         print(f'signup{result}')
         if result:
-            error1 = '帳號已經被註冊.'
+            error1 = '帳號已經被註冊'
             return render_template('error.html', error1=error1)
         elif password != password2:
             error2 = '密碼輸入不同'
@@ -117,6 +122,11 @@ def error():
                            web_info=web_info,
                            msg=msg
                            )
+
+
+@app.route('/line')
+def line():
+    return render_template('line.html', web_info=web_info)
 
 
 if __name__ == '__main__':

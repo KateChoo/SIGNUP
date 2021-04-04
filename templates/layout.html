@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-signin-client_id" content="signup-309512
     .apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="/static/stylesheets/header/header.css">
-    {% block signup_css_link%}
+    {% block home_css_link%}
     {% endblock %}
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <title>K</title>
+    <title>K Choo | Protfolio</title>
 </head>
 <body>
     <header>
@@ -32,23 +33,38 @@
                 {% else %}
                     <li class='show'><a href = "/signout">登出系統</a></li>
                 {% endif %}
-                <li class='show'><a>item3</a></li>
-                <li class='show'><a>item4</a></li>
+                <li class='show'><a href = "/line">LINE</a></li>
+                <li class='show'><a href = "https://zandb.link/">K</a></li>
             </ul>
         </nav>
         <div>
             {% block title %}
-            {% endblock %}
-        </div>
-        {% block header %}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages %}
+                    <h3 style="color:rgb(218, 88, 13); 
+                    margin: 0 auto; 
+                    display:grid;
+                    justify-self: center;
+                    align-self: center;">{{msg}}</h3>
+                    {% endfor %}
+                {% elif g.name == '您' %}
+                    <h1>{{web_info.signin_t}}</h1>
+                {% else %}
+                    <h1>作品集</h1>
+                {% endif %}
+            {% endwith %}
         {% endblock %}
+        </div>
+        <!-- {% block header %}
+        {% endblock %} -->
     </header>
     <main>
         {% block home %}
         {% endblock %}
-        {% block member %}
-        {% endblock %}
     </main>
-<script src="static/js/header.js"> </script>
+<script src="static/js/header.js"> </script>  
+{% block home_js %}
+{% endblock %}
 </body>
 </html>
