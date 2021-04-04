@@ -1,8 +1,13 @@
 {% extends 'layout.html' %}
-{% block msg_css_link%}
-<link rel="stylesheet" href="static/stylesheets/home/msg.css">
+{% block member_css_link%}
+    <link rel="stylesheet" href="static/stylesheets/member/member.css">
 {% endblock %}
+{% block msg_css_link%}
+    <link rel="stylesheet" href="static/stylesheets/home/msg.css">
+{% endblock %}
+
 {% block member %}
+    {% if g.name == '您' %}
         {% block title %}
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -16,9 +21,26 @@
                 {% elif g.name == '您' %}
                     <h1>{{web_info.member_t}}</h1>
                 {% else %}
-                    <h1>{{g.name}}頁面</h1>
+                    <h1>{{g.name}}的...</h1>
                 {% endif %}
             {% endwith %}
         {% endblock %}
+   {% else %}
+        {#}
+        {% else %}
+            <section class="mboard">
+                <div style="margin: 0 auto;" class="container story">
+                    <label for="">話說:</label>
+                    <button class="add_msg">新增留言</button>
+                </div>
+
+                <div class="message">
+                </div>
+            </section>
+        {#}
+    {% endif %}
+    {% block msg_js %}
+    <script src="../static/js/msg.js"> </script>
+    {% endblock %}
 {% endblock %}
 

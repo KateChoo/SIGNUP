@@ -10,7 +10,7 @@
 {% block home %} 
     {% if g.name == '您' %}
         {% block title_home %}
-            <h1>留言板</h1>
+            <h1>{{web_info.home_t}}</h1>
         {% endblock %}
 
         <div class="form">
@@ -59,7 +59,7 @@
         {% endblock %}
         </div>
     {% else %}
-        <section class="mboard"></section>
+        <section class="mboard">
             <div style="margin: 0 auto;" class="container story">
                 <label for="">話說:</label>
                 <button class="add_msg">新增留言</button>
@@ -67,7 +67,7 @@
         
             <div class="message">
             </div> 
-  
+        </section>
     {% endif %}
     {% block msg_js %}
     <script src="../static/js/msg.js"> </script>

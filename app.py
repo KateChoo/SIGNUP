@@ -13,11 +13,11 @@ app.permanent_session_lifetime = timedelta(minutes=10080)
 cursor = mydb.cursor()
 
 web_info = {
-    'signin_t': '歡迎光臨',
+    'home_t': 'K留言板',
+    'signin_t': 'K說歡迎光臨',
     'member_t': '歡迎光臨，這是會員頁面',
-    'signup_t': '歡迎光臨，註冊成功',
-    'error_t': '失敗頁面',
-    'signout_t': '已登出',
+    'k_t': 'K作品連結',
+    'taipei_t': '歡迎光臨，台北'
 }
 
 
@@ -116,19 +116,19 @@ def error():
                            )
 
 
-@app.route('/line')
-def line():
-    return render_template('line.html', web_info=web_info)
+@app.route('/tpe')
+def taipei():
+    return render_template('taipei.html', web_info=web_info)
 
 
 @app.route('/k_links')
 def msg():
     return render_template('k_links.html', web_info=web_info)
 
-# @app.route('/k')
-# def msg():
-#     return render_template('msg.html', web_info=web_info)
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
+
+# if __name__ == '__main__':
+#     port = int(os.environ.get("PORT", 5000))
+#     app.run(debug=True, port=port, host="0.0.0.0")
