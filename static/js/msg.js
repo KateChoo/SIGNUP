@@ -1,4 +1,4 @@
-const container = document.querySelector(".container");
+const container = document.querySelector(".story");
 const btn = document.querySelector("button");
 const message = document.querySelector(".message");
 btn.addEventListener("click", create);

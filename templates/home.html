@@ -10,7 +10,7 @@
 {% block home %} 
     {% if g.name == '您' %}
         {% block title_home %}
-        <h1>留言板</h1>
+            <h1>留言板</h1>
         {% endblock %}
 
         <div class="form">
@@ -59,19 +59,16 @@
         {% endblock %}
         </div>
     {% else %}
-        <section class="mboard">
-            <div class="container">
+        <section class="mboard"></section>
+            <div style="margin: 0 auto;" class="container story">
                 <label for="">話說:</label>
                 <button class="add_msg">新增留言</button>
             </div>
         
             <div class="message">
             </div> 
-        </section>
+  
     {% endif %}
-    {% block home_js %}
-        <script src="../static/js/home.js"> </script>
-    {% endblock %}
     {% block msg_js %}
     <script src="../static/js/msg.js"> </script>
     {% endblock %}
