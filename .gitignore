@@ -6,9 +6,8 @@ try4.py
 try5.py
 ori.py
 db.yaml
-README.md
 g.py
-bapp.py
+py/bapp.py
 Procfile
 requirements.txt
-README.md
+py/README.md

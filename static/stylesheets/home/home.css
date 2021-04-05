@@ -4,7 +4,7 @@
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 a {
@@ -19,14 +19,18 @@ img {
   display: block;
   width: 100%;
 }
-.form{
+main {
   display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: 0 auto;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media only screen and (min-width: 1200px) {
-  .form{
-      display: flex;
+  .form {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
   }
 }

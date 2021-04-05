@@ -1,29 +1,35 @@
 .container,
 .story,
-.message{
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: 0 auto; 
-}
-.mboard{
+.message {
   display: flex;
   flex-direction: column;
   max-width: 600px;
   margin: 0 auto;
 }
-.message{
-    margin: 3rem auto;
-    padding: 2rem auto;
+/* .mboard{
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+} */
+.message {
+  margin: 3rem auto;
+  padding: 2rem auto;
 }
 
-.add_msg.pressHint{
+.add_msg.pressHint {
   height: 5rem;
-  background: rgb(216, 216, 235) /* #A53869;*/
+  background: rgb(216, 216, 235); /* #A53869;*/
   animation: 1s pressHint infinite;
 }
-@keyframes pressHint{
-  0%{opacity:1}
-  50%{opacity:0.7}
-  100%{opacity:1}
+@keyframes pressHint {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
 }
