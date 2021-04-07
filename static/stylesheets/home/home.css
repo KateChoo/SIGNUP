@@ -19,9 +19,6 @@ img {
   display: block;
   width: 100%;
 }
-main {
-  display: flex;
-}
 .form {
   display: flex;
   justify-content: center;

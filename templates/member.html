@@ -2,8 +2,8 @@
 {% block member_css_link%}
     <link rel="stylesheet" href="static/stylesheets/member/member.css">
 {% endblock %}
-{% block msg_css_link%}
-    <link rel="stylesheet" href="static/stylesheets/home/msg.css">
+{% block axios_link%}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 {% endblock %}
 
 {% block member %}
@@ -38,9 +38,24 @@
                 </div>
             </section>
         {#}
+        <form id="get_form" action="/api/users" method="get">
+            <div>
+                <label for="">查詢會員姓名</label>
+                <input id="search_name" type="text" name="username">
+            </div>
+            <div>
+                <input type="submit" name="submit" value="查詢">
+            </div>
+            <h3 id="show_name"></h3>
+            
+            <script src="../static/js/axios.js"></script>
+        
+            <script src="../static/js/xhr.js"></script>
+            
+            {#}
+            <script src="../static/js/fetch.js"></script>
+            {#}
+        </form>
     {% endif %}
-    {% block msg_js %}
-    <script src="../static/js/msg.js"> </script>
-    {% endblock %}
 {% endblock %}
 

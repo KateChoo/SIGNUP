@@ -127,6 +127,37 @@ def msg():
     return render_template('k_links.html', web_info=web_info)
 
 
+@app.route('/api/users', methods=['POST', 'GET'])
+def make_api():  # ?username=ply  #charset='utf-8'
+    # /api/users?username=ply
+    try:
+        user_api = request.args.get('username', '{"data": null}')
+        if user_api:
+            cursor.execute(
+                'SELECT * FROM user where username = %s', (user_api,))
+            result = cursor.fetchone()
+            # print(f'api/users{result}')
+
+            user_name = user_api
+            # session.permanent = True
+            session['username'] = user_name
+            data = (
+                {"data": {'id': result[0], 'name': result[1], 'username': result[2]}})
+            print(f'user_api{data}')
+            print(f'http://127.0.0.1:3000/api/users?username={user_api}')
+            return data
+        return render_template('member.html',
+                               web_info=web_info,
+                               data=data.encode('utf-8'),
+                               user_api=user_api,
+                               # headers=HEADERS,
+                               )
+    except:
+        # else:
+        data = '{\n"data": null\n}'
+        return (data)
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
 
