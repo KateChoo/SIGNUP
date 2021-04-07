@@ -5,14 +5,14 @@
 ## 技術使用（不定期更新）
 
 ```bash
-1.使用 python flask 框架架設伺服器
-2.MySQL 管理會員
-3.javascript 留言板
-4.javascript ajax 串接台北市政府提供景點公開資料，擷取清理資料，動態的做出畫面，顯示景點的第一張圖片和景點的名稱
-5.python flask 從資料庫撈出資料製作api
-6.jacascript 串接自己製作的api供使用者查詢
-7.scss
-8.3D動畫
+1. 使用 python flask 框架架設伺服器
+2. MySQL 管理會員
+3. javascript 留言板
+4. javascript ajax 串接台北市政府提供景點公開資料，擷取清理資料，動態的做出畫面，顯示景點的第一張圖片和景點的名稱
+5. python flask 從資料庫撈出資料製作api
+6. jacascript 串接自己製作的api供使用者查詢
+7. scss
+8. 3D動畫
 目前為本機開發，剛開始要學AWS
 ```
 
