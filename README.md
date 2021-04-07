@@ -2,6 +2,8 @@
 
 <img src="py/0.png" alt=""/>
 
+## 技術使用（不定期更新）
+
 ```bash
 1.使用 python flask 框架架設伺服器
 2.MySQL 管理會員
