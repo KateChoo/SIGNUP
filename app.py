@@ -39,7 +39,7 @@ def home():
 @app.route('/signin', methods=['POST', 'GET'])
 def signin():
     print(request.form)
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and not '' in request.form:
         username = request.form.get('username')
         password = request.form.get('password')
 
@@ -77,6 +77,9 @@ def signup():
         elif password != password2:
             error2 = '密碼輸入不同'
             return render_template('error.html', error2=error2)
+        elif ' ':
+            error3 = '不可以空白'
+            return render_template('error.html', error3=error3)
         else:
             query = "INSERT into user(name, username, password) VALUES (%s,%s,%s)"
             cursor.execute(query, (name, username, password))
